@@ -170,13 +170,36 @@ If redistribution is restricted, this file can be omitted from the public reposi
 
 ## How to Run
 
-## 1. Install dependencies
+### 1.Hugging Face Access
+
+This project may require a valid Hugging Face access token to download or run certain models.
+
+Please use your **own token** and keep it private.  
+For security reasons, no personal token is included in this repository.
+
+A recommended approach is to set your token as an environment variable:
+
+```bash
+export HF_TOKEN=your_huggingface_token
+````
+
+Then load it in Python:
+
+```python
+import os
+from huggingface_hub import login
+
+token = os.getenv("HF_TOKEN")
+login(token)
+```
+
+## 2. Install dependencies
 
 ```bash
 pip install transformers sentence-transformers torch numpy pandas scikit-learn nltk rouge-score bert-score jupyter
 ```
 
-## 2. Open the notebook
+## 3. Open the notebook
 
 ```bash
 jupyter notebook
@@ -188,7 +211,7 @@ Then open:
 LLM_RAGdemo.ipynb
 ```
 
-## 3. Prepare required files
+## 4. Prepare required files
 
 Make sure the following files are available in the working directory:
 
@@ -196,7 +219,7 @@ Make sure the following files are available in the working directory:
 * knowledge source file such as `NCKU_wiki.pdf` or the original source document
 * notebook dependencies
 
-## 4. Run the pipeline
+## 5. Run the pipeline
 
 Run the notebook cells in order to:
 
